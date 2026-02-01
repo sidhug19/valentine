@@ -50,6 +50,11 @@ const handleNoClick = () => {
 const handleYesClick = () => {
   resultEl.textContent = "Yay!! See you on Valentine’s Day 💖";
   spawnConfetti();
+  noCount = 0;
+  localStorage.setItem(STORAGE_KEY, "0");
+  updateNoCount();
+  noBtn.style.display = "";
+  shrinkNoButton();
 };
 
 noBtn.addEventListener("click", handleNoClick);
