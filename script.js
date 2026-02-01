@@ -36,6 +36,13 @@ const handleNoClick = () => {
   noCount += 1;
   localStorage.setItem(STORAGE_KEY, String(noCount));
   updateNoCount();
+
+  if (noCount >= 27) {
+    noBtn.style.display = "none";
+    resultEl.textContent = "No option ran away... only yes left 💖";
+    return;
+  }
+
   shrinkNoButton();
   resultEl.textContent = "Aww, please reconsider 💘";
 };
@@ -49,4 +56,9 @@ noBtn.addEventListener("click", handleNoClick);
 yesBtn.addEventListener("click", handleYesClick);
 
 updateNoCount();
-shrinkNoButton();
+if (noCount >= 27) {
+  noBtn.style.display = "none";
+  resultEl.textContent = "No option ran away... only yes left 💖";
+} else {
+  shrinkNoButton();
+}
